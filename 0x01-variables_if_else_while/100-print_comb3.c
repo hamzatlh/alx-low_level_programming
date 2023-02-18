@@ -8,8 +8,8 @@
 int main(void)
 {
 	int i;
-	i = 10;
 
+	i = 10;
 	write(1, "01, 02, 03, 04, 05, 06, 07, 08, 09", 35);
 	while (i < 100)
 	{
@@ -22,6 +22,5 @@ int main(void)
 		}
 		i++;
 	}
-	putchar('\n');
 	return (0);
 }

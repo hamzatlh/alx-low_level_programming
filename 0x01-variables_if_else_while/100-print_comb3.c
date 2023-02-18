@@ -7,31 +7,20 @@
  */
 int main(void)
 {
-	int n;
-	int first;
-	int second;
-	n = 0;
-	
-	while (n < 100)
+	int i;
+	i = 10;
+
+	write(1, "01, 02, 03, 04, 05, 06, 07, 08, 09", 35);
+	while (i < 100)
 	{
-		first = n / 10;
-		second = n % 10;
-		if (first != second && first < second)
+		if (i % 10 > i / 10)
 		{
-			if (n != 89)
-			{
-				putchar(first + '0');
-				putchar(second + '0');
-				putchar(',');
-				putchar(' ');
-			}
-			else
-			{
-				putchar(first + '0');
-				putchar(second + '0');
-			}
+			putchar(',');
+			putchar(' ');
+			putchar(i / 10 + '0');
+			putchar(i % 10 + '0');
 		}
-		n++;
+		i++;
 	}
 	putchar('\n');
 	return (0);

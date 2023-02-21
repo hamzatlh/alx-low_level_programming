@@ -10,3 +10,9 @@ void	print_alphabet(void)
 {
 	write(1, "abcdefghijklmnopqrstuvwxyz\n", 27);
 }
+
+int main(void)
+{
+	print_alphabet();
+	return (0);
+}

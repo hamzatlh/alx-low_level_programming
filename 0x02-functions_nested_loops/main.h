@@ -3,7 +3,7 @@
 
 #include <unistd.h>
 #include <stdio.h>
-int print_last_digit(int n);
+void jack_bauer(void);
 int _putchar(char c);
 #endif
 

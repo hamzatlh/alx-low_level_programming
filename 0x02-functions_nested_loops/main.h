@@ -3,7 +3,7 @@
 
 #include <unistd.h>
 #include <stdio.h>
-void jack_bauer(void);
+void times_table(void);
 int _putchar(char c);
 #endif
 

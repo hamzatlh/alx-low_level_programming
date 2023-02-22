@@ -3,7 +3,7 @@
 
 #include <unistd.h>
 #include <stdio.h>
-void times_table(void);
+int add(int a, int b);
 int _putchar(char c);
 #endif
 

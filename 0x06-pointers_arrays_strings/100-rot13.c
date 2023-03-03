@@ -5,21 +5,23 @@
  * @s: string to encode
  * Return: s
  */
-char	*rot13(char *s)
+char *rot13(char *s)
 {
-	int	idx;
+	int i, j;
+	char *a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char *b = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	idx = 0;
-	while (s[idx] != '\0')
+	for (i = 0; s[i]; i++)
 	{
-		if ((s[idx] >= 'A' && s[idx] <= 'M')
-			|| (s[idx] >= 'a' && s[idx] <= 'm'))
-			s[idx] += 13;
-		else if ((s[idx] >= 'N' && s[idx] <= 'Z')
-			|| (s[idx] >= 'n' && s[idx] <= 'z'))
-			s[idx] -= 13;
-		write(1, &s[idx], 1);
-		idx++;
+		for (j = 0; a[j]; j++)
+		{
+			if (s[i] == a[j])
+			{
+				s[i] = b[j];
+				break;
+			}
+		}
 	}
+
 	return (s);
 }

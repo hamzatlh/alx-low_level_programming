@@ -18,7 +18,7 @@ char	*rot13(char *s)
 		else if ((s[idx] >= 'N' && s[idx] <= 'Z')
 			|| (s[idx] >= 'n' && s[idx] <= 'z'))
 			s[idx] -= 13;
-		write(1, &s[i], 1);
+		write(1, &s[idx], 1);
 		idx++;
 	}
 	return (s);

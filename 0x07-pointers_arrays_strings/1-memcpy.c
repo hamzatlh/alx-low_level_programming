@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _memcpy - function that copies memory area
  * @dest: the destination
@@ -6,6 +7,7 @@
  * @n: bytes copies
  * Return: dst
  */
+
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;

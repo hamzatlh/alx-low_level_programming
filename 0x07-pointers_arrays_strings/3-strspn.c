@@ -9,16 +9,23 @@
  *
  * Return: the number of bytes
  */
-
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int i = 0;
+	int z = 0, x, y;
 
-	while (s[i] != '\0')
+	for (x = 0; s[x] != '\0'; x++)
 	{
-		if (_strchr(accept, s[i]) == 0)
-			break;
-		++i;
+		if (s[x] != 32)
+		{
+			for (y = 0; accept[y] != '\0'; y++)
+			{
+				if (s[x] == accept[y])
+					z++;
+			}
+		}
+		else
+			return (z);
 	}
-	return (i);
+		return (z);
+
 }

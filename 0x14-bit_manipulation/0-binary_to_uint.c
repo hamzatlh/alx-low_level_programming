@@ -15,15 +15,10 @@ unsigned int binary_to_uint(const char *b)
 		return (0);
 	for (i = 0; b && b[i] != '\0'; i++)
 	{
-		if (b[i] == '0')
-			bit <<= 1;
-		else if (b[i] == '1')
-		{
-			result += bit - '0';
-			bit <<= 1;
-		}
-		else
+		if (*b != '0' && *b != '1')
 			return (0);
+		num <<= 1;
+		num += *b - '0';
 	}
 	return (result);
 }

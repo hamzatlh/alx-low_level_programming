@@ -22,12 +22,12 @@ int main(int argc, char *argv[])
 	}
 	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_to == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(98);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	while ((read_bytes = read(fd_from, buf, 1024)) > 0)
 	{
 		write_bytes = write(fd_to, buf, read_bytes);
 		if (write_bytes == -1)
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(98);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	}
 	if (read_bytes == -1)
 	{
@@ -35,9 +35,14 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	if (close(fd_from) == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from), exit(99);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+		return (100);
+	}
 	if (close(fd_to) == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to), exit(99);
-
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
+		return (100);
+	}
 	return (0);
 }

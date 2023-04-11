@@ -20,14 +20,11 @@ int append_text_to_file(const char *filename, char *text_content)
 		close(fd);
 		return (1);
 	}
-	for (len = 0; text_content[len]; len++)
-		;
+	while (text_content[len])
+		len++;
 	write_it = write(fd, text_content, len);
-	if (write_it == -1)
-	{
-		close(fd);
+	if (write_it < 0 || len != w)
 		return (-1);
-	}
 	close(fd);
 	return (1);
 }

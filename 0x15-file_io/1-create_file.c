@@ -8,7 +8,7 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int	fd, len, write_it;
+	int	fd, write_it;
 
 	write_it = 0;
 	if (filename == NULL)
@@ -23,7 +23,7 @@ int create_file(const char *filename, char *text_content)
 	}
 	else
 	{
-		write_bytes = dprintf(fd, "%s", text_content);
+		write_it = dprintf(fd, "%s", text_content);
 		if (write_it < 0)
 			return (-1);
 	}

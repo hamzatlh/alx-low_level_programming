@@ -1,50 +1,22 @@
 #include "main.h"
 
 /**
- *base_two_power - calculates two to the power of n
- *@n: the power
- *Return: result
+ * binary_to_uint - converts a binary number to an unsigned int
+ * @b: pointer to a string of 0 and 1 chars
+ * Return: the converted number, or 0 if
+ * - there is one or more chars in the string b that is not 0 or 1
+ * - b is NULL
  */
-
-unsigned int base_two_power(unsigned int n)
-{
-	unsigned int i = 0;
-	unsigned int res = 1;
-
-	while (i < n)
-	{
-		res *= 2;
-		i++;
-	}
-	return (res);
-}
-
-/**
- *binary_to_uint - converts binary number to unsigned int
- *@b: the binary to convert
- *Return: result
- */
-
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int i = 0;
-	unsigned int decimal = 0;
-	unsigned int j = 0;
+	unsigned int num;
 
-	if (!b)
-		return (0);
-	while (b[i])
+	for (num = 0; b && *b; b++)
 	{
-		if (b[i] != '1' && b[i] != '0')
+		if (*b != '0' && *b != '1')
 			return (0);
-		i++;
+		num <<= 1;
+		num += *b - '0';
 	}
-	i--;
-	while (b[j])
-	{
-		decimal += base_two_power(i) * (b[j] - '0');
-		i--;
-		j++;
-	}
-	return (decimal);
+	return (num);
 }
